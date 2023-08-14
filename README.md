@@ -33,19 +33,14 @@
     <li><a href="https://html.spec.whatwg.org/">HTML</a></li>
     <li><a href="https://www.w3.org/TR/CSS/#css">CSS</a></li>
     <li><a href="#">JavaScript</a></li>
-    <li><a href="#">Bootstrap</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
 - Set up the linter for the project 👌
-- Add the test file and node modules to the .gitignore file🚀
+- Add the node modules to the .gitignore file🚀
 - Add the styling
-- Set up the home mobile page
-- Set up the About Mobile page
-- Desktop layout for both home and about page
-- Deploy application live online
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,8 +60,8 @@
 Clone this repository to your desired folder Enter the following commands in the terminal:
 
 ```sh
-  git clone git@github.com:efmomoh/Capstone-Project.git
-  cd Portfolio-setup-and-mobile-first
+  git clone git@github.com:efmomoh/awesome-books.git
+  cd awesome-books
 ```
 
 ### Install
@@ -83,7 +78,7 @@ Install this project with the following command in the terminal:
 To run the project,
 
 ```sh
-  Open the browser and enter the address of the home.html file from your computer/server
+  Open the browser and enter the address of the index.html file from your computer/server
 ```
 
 ### Run tests
@@ -94,7 +89,7 @@ To run the project,
 ```
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- - [Live Demo Link](https://efmomoh.github.io/Capstone-Project-HTML-CSS-JS/)
+ - [Live Demo Link](https://efmomoh.github.io/awesome-books/)
 
 
 ## 👥 Author <a name="authors"></a>
