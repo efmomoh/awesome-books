@@ -1,4 +1,8 @@
-        E & J AWESOME BOOKS
+       
+       
+                      E & J AWESOME BOOKS
+                      
+                      
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -21,7 +25,7 @@
 
 # 📖 HTML/CSS & JavaScript capstone project - Conference page<a name="about-project"></a>
 
--ENSSAH & JAMES AWESOME BOOKS: Awesome Books project - The  Awesome Books page is our first Microverse  Awesome Books project. In this project, we use HTML, CSS, and JavaScript by adding an index and style file, we also used linters to analyze our source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
+-ENSSAH & JAMES AWESOME BOOKS: Awesome Books project - The Awesome Books page is our first Microverse Awesome Books project. In this project, we use HTML, CSS, and JavaScript by adding an index and style file, we also used linters to analyze our source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -69,7 +73,7 @@ Clone this repository to your desired folder Enter the following commands in the
 Install this project with the following command in the terminal:
 
 ```sh
- npm install 
+ npm install
 
 ```
 
@@ -87,10 +91,6 @@ To run the project,
    1. npx hint.
    2. npx stylelint "**/*.{css,scss}"
 ```
-## 🚀 Live Demo <a name="live-demo"></a>
-
- - [Live Demo Link](https://efmomoh.github.io/awesome-books/)
-
 
 ## 👥 Author <a name="authors"></a>
 
@@ -104,13 +104,13 @@ To run the project,
 
 - GitHub: [@githubhandle](https://github.com/chiedozie013)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
+
 - Add books
 - Remove books
-- Adds Author
+- Add Author
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,7 +130,6 @@ If you like this project please give it a star and follow me on GitHub LinkedIn 
 I would like to thank Creative Commons for the hard work put in as a team for this awesome UX Design. Hence, this project was built based on Creative Commons legal designs. Thanks, team for the success!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 📝 License <a name="license"></a>
 

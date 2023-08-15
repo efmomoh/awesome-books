@@ -1,5 +1,5 @@
 // Array to store the list of awesomeBooks
-const awesomeBooks = [];
+let awesomeBooks = [];
 
 // Function to add a book
 function addBook() {
@@ -19,15 +19,17 @@ function addBook() {
   document.getElementById('authorName').value = '';
   /* eslint-disable */
   updateBookList();
-  /* eslint-enable */
+  saveBooksToLocalStorage(); // Save the updated book list to local storage
+  /* eslint-disable */
 }
 
 // Function to remove a book
 function removeBook(index) {
-  awesomeBooks.splice(index, 1);
+  awesomeBooks = awesomeBooks.filter((_, i) => i !== index);
   /* eslint-disable */
   updateBookList();
-  /* eslint-enable */
+  saveBooksToLocalStorage(); // Save the updated book list to local storage
+  /* eslint-disable */
 }
 
 // Function to update the book list on the page
@@ -35,8 +37,7 @@ function updateBookList() {
   const bookListing = document.getElementById('bookList');
   bookListing.innerHTML = '';
 
-  for (let i = 0; i < awesomeBooks.length; i += 1) {
-    const book = awesomeBooks[i];
+  awesomeBooks.forEach((book, i) => {
     const listBookItem = document.createElement('li');
     listBookItem.classList.add('lists');
     listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
@@ -50,40 +51,27 @@ function updateBookList() {
 
     listBookItem.appendChild(removeButton);
     bookListing.appendChild(listBookItem);
+  });
+}
+
+// Function to save the book list to local storage
+function saveBooksToLocalStorage() {
+  localStorage.setItem('awesomeBooks', JSON.stringify(awesomeBooks));
+}
+
+// Load the books from local storage
+function loadBooksFromLocalStorage() {
+  const storedBooks = localStorage.getItem('awesomeBooks');
+  if (storedBooks) {
+    awesomeBooks = JSON.parse(storedBooks);
+    updateBookList();
   }
 }
 
 // Add event listeners to buttons
 document.getElementById('add-btn').addEventListener('click', addBook);
 
-// Local storage / save user data locally
-const locateLocalBooks = document.querySelector('.form');
-const titleName = document.querySelector('.bookHeading');
-const nameOfAuthor = document.querySelector('.orator');
-
-// collect form data
-
-function getBookData() {
-  const bookData = {
-    titleName: titleName.value,
-    nameOfAuthor: nameOfAuthor.value,
-  };
-  return bookData;
-}
-
-// Add an event listener to the local form storage area
-
-locateLocalBooks.addEventListener('change', () => {
-  const bookData = getBookData();
-  localStorage.setItem('bookData', JSON.stringify(bookData));
-});
-
-// Add an eevnt listener to the page/window to save input data when user loads the page
-
+// Load stored books when the page loads
 window.addEventListener('load', () => {
-  const data = JSON.parse(localStorage.getItem('bookData'));
-  if (data) {
-    titleName.value = data.titleName;
-    nameOfAuthor.value = data.nameOfAuthor;
-  }
+  loadBooksFromLocalStorage();
 });
