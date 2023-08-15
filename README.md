@@ -49,7 +49,6 @@
 
 ### Prerequisites
 
-
 1. Computer
 2. Internet
 3. Web Browser
@@ -111,7 +110,7 @@ To run the project,
 ## 🔭 Future Features <a name="future-features"></a>
 - Add books
 - Remove books
-- Adds Author
+- Add Author
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
