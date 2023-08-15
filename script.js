@@ -63,13 +63,13 @@ const nameOfAuthor = document.querySelector(".orator");
 
 // collect form data
 
-function getBookData() {
-  const bookData = {
-    titleName: titleName.value,
-    nameOfAuthor: nameOfAuthor.value,
-  };
-  return bookData;
-}
+// function getBookData() {
+//   const bookData = {
+//     titleName: titleName.value,
+//     nameOfAuthor: nameOfAuthor.value,
+//   };
+//   return bookData;
+// }
 
 // Add an event listener to the local form storage area
 
