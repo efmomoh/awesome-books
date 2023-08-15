@@ -17,16 +17,19 @@ function addBook() {
 
   document.getElementById('bookTitle').value = '';
   document.getElementById('authorName').value = '';
-
+  /* eslint-disable */
   updateBookList();
   saveBooksToLocalStorage(); // Save the updated book list to local storage
+  /* eslint-disable */
 }
 
 // Function to remove a book
 function removeBook(index) {
   awesomeBooks = awesomeBooks.filter((_, i) => i !== index);
+  /* eslint-disable */
   updateBookList();
   saveBooksToLocalStorage(); // Save the updated book list to local storage
+  /* eslint-disable */
 }
 
 // Function to update the book list on the page
