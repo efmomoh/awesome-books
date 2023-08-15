@@ -35,18 +35,18 @@ function updateBookList() {
   const bookListing = document.getElementById('bookList');
   bookListing.innerHTML = '';
 
-  for (let i = 0; i < awesomeBooks.length; i += 1) {
-    const book = awesomeBooks[i];
-    const listBookItem = document.createElement('li');
-    listBookItem.classList.add('lists');
-    listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
+  // for (let i = 0; i < awesomeBooks.length; i += 1) {
+  //   const book = awesomeBooks[i];
+  //   const listBookItem = document.createElement('li');
+  //   listBookItem.classList.add('lists');
+  //   listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
 
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-btn');
-    removeButton.addEventListener('click', () => {
-      removeBook(i);
-    });
+  //   const removeButton = document.createElement('button');
+  //   removeButton.textContent = 'Remove';
+  //   removeButton.classList.add('remove-btn');
+  //   removeButton.addEventListener('click', () => {
+  //     removeBook(i);
+  //   });
 
     listBookItem.appendChild(removeButton);
     bookListing.appendChild(listBookItem);
