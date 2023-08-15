@@ -41,6 +41,7 @@
 - Set up the linter for the project 👌
 - Add the node modules to the .gitignore file🚀
 - Add the styling
+- Use DOM Manipulation
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,20 +101,23 @@ To run the project,
 - Twitter: [@twitterhandle](https://twitter.com/@efmomoh)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/efmomoh?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQI%2F5GWZxS063VqRg2rilyg%3D%3D)
 
+👤 **James**
+
+- GitHub: [@githubhandle](https://github.com/chiedozie013)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-- Add a chatbot using API
-- Adds Home and About page section
-- Adds mobile menu toggle
-- Desktop version
+- Add books
+- Remove books
+- Adds Author
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 contributing <a name="contributing"></a>
 
-You are welcome, and click <a href="https://github.com/efmomoh/Capstone-Project-HTML-CSS-JS/issues">here</a> for contribution, issues, and feature request 🙏
+You are welcome, and click <a href="https://github.com/efmomoh/awesome-books/issues">here</a> for contribution, issues, and feature request 🙏
 
 ## ⭐️ Show your support <a name="support"></a>
 
@@ -131,6 +135,6 @@ I would like to thank Creative Commons for the hard work put in as a team for th
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT.md) and [CCC](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
