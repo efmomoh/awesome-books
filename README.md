@@ -1,4 +1,4 @@
-
+        E & J AWESOME BOOKS
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -48,7 +48,6 @@
 ## 💻 Getting Started <a name="getting-started"></a>
 
 ### Prerequisites
-
 
 1. Computer
 2. Internet
