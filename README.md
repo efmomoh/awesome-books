@@ -41,6 +41,7 @@
 - Add the node modules to the .gitignore file🚀
 - Add the styling
 - Use DOM Manipulation
+- Adds plain javaScript classes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
