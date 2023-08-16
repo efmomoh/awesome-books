@@ -1,43 +1,59 @@
-// Array to store the list of awesomeBooks
-let awesomeBooks = [];
-
-// Function to add a book
-function addBook() {
-  const bookTitle = document.getElementById('bookTitle').value;
-  const authorName = document.getElementById('authorName').value;
-  const errorMessage = document.querySelector('.feedback');
-
-  if (bookTitle.trim() === '' || authorName.trim() === '') {
-    errorMessage.textContent = '❌ Add both "Title" & "Author"!';
-    return;
+class AwesomeBookManager {
+  constructor() {
+    this.awesomeBooks = [];
+    this.init();
   }
 
-  const book = { title: bookTitle, author: authorName };
-  awesomeBooks.push(book);
+  init() {
+    this.loadBooksFromLocalStorage();
+    document.getElementById('add-btn').addEventListener('click', this.addBook.bind(this));
+    window.addEventListener('load', this.loadBooksFromLocalStorage.bind(this));
+  }
 
-  document.getElementById('bookTitle').value = '';
-  document.getElementById('authorName').value = '';
-  /* eslint-disable */
-  updateBookList();
-  saveBooksToLocalStorage(); // Save the updated book list to local storage
+  // Function to add a book
+  addBook() {
+    const bookTitle = document.getElementById('bookTitle').value;
+    const authorName = document.getElementById('authorName').value;
+    const errorMessage = document.querySelector('.feedback');
+
+    if (bookTitle.trim() === '' || authorName.trim() === '') {
+      errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
+      return;
+    }
+
+    const book = { title: bookTitle, author: authorName };
+    this.awesomeBooks.push(book);
+
+    document.getElementById('bookTitle').value = '';
+    document.getElementById('authorName').value = '';
+    /* eslint-disable */
+    this.updateBookList();
+    this.saveBooksToLocalStorage(); // Save the updated book list to local storage
   /* eslint-disable */
 }
 
 // Function to remove a book
-function removeBook(index) {
-  awesomeBooks = awesomeBooks.filter((_, i) => i !== index);
+removeBook(index) {
+  this.awesomeBooks = this.awesomeBooks.filter((_, i) => i !== index);
   /* eslint-disable */
-  updateBookList();
-  saveBooksToLocalStorage(); // Save the updated book list to local storage
+  this.updateBookList();
+  this.saveBooksToLocalStorage(); // Save the updated book list to local storage
   /* eslint-disable */
 }
 
+
 // Function to update the book list on the page
-function updateBookList() {
+updateBookList() {
   const bookListing = document.getElementById('bookList');
   bookListing.innerHTML = '';
+  
+  if (this.awesomeBooks.length > 0) {
+    bookListing.classList.add('list-border'); // Add the border class if there are books
+  } else {
+    bookListing.classList.remove('list-border'); // Remove the border class if there are no books
+  }
 
-  awesomeBooks.forEach((book, i) => {
+  this.awesomeBooks.forEach((book, i) => {
     const listBookItem = document.createElement('li');
     listBookItem.classList.add('lists');
     listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
@@ -46,7 +62,7 @@ function updateBookList() {
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
     removeButton.addEventListener('click', () => {
-      removeBook(i);
+      this.removeBook(i);
     });
 
     listBookItem.appendChild(removeButton);
@@ -54,24 +70,19 @@ function updateBookList() {
   });
 }
 
+
 // Function to save the book list to local storage
-function saveBooksToLocalStorage() {
-  localStorage.setItem('awesomeBooks', JSON.stringify(awesomeBooks));
+saveBooksToLocalStorage() {
+  localStorage.setItem('awesomeBooks', JSON.stringify(this.awesomeBooks));
 }
 
 // Load the books from local storage
-function loadBooksFromLocalStorage() {
-  const storedBooks = localStorage.getItem('awesomeBooks');
-  if (storedBooks) {
-    awesomeBooks = JSON.parse(storedBooks);
-    updateBookList();
+loadBooksFromLocalStorage() {
+    const storedBooks = localStorage.getItem('awesomeBooks');
+    if (storedBooks) {
+      this.awesomeBooks = JSON.parse(storedBooks);
+      this.updateBookList();
+    }
   }
 }
-
-// Add event listeners to buttons
-document.getElementById('add-btn').addEventListener('click', addBook);
-
-// Load stored books when the page loads
-window.addEventListener('load', () => {
-  loadBooksFromLocalStorage();
-});
+const bookDirector = new AwesomeBookManager();
