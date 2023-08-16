@@ -29,6 +29,8 @@ h1 {
 
 .heading {
   font-size: 20px;
+  padding-left: 30px;
+  width: 100%;
 }
 
 #bookTitle,
