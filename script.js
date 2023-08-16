@@ -1,77 +1,94 @@
-// Array to store the list of awesomeBooks
-let awesomeBooks = [];
-
-// Function to add a book
-function addBook() {
-  const bookTitle = document.getElementById('bookTitle').value;
-  const authorName = document.getElementById('authorName').value;
-  const errorMessage = document.querySelector('.feedback');
-
-  if (bookTitle.trim() === '' || authorName.trim() === '') {
-    errorMessage.textContent = '❌ Add both "Title" & "Author"!';
-    return;
+class AwesomeBookManager {
+  constructor() {
+    this.awesomeBooks = [];
+    this.init();
   }
 
-  const book = { title: bookTitle, author: authorName };
-  awesomeBooks.push(book);
+  init() {
+    this.loadBooksFromLocalStorage();
+    document
+      .getElementById('add-btn')
+      .addEventListener('click', this.addBook.bind(this));
+    window.addEventListener('load', this.loadBooksFromLocalStorage.bind(this));
+  }
 
-  document.getElementById('bookTitle').value = '';
-  document.getElementById('authorName').value = '';
-  /* eslint-disable */
-  updateBookList();
-  saveBooksToLocalStorage(); // Save the updated book list to local storage
-  /* eslint-disable */
-}
+  // Function to add a book
+  addBook() {
+    const bookTitle = document.getElementById('bookTitle').value;
+    const authorName = document.getElementById('authorName').value;
+    const errorMessage = document.querySelector('.feedback');
 
-// Function to remove a book
-function removeBook(index) {
-  awesomeBooks = awesomeBooks.filter((_, i) => i !== index);
-  /* eslint-disable */
-  updateBookList();
-  saveBooksToLocalStorage(); // Save the updated book list to local storage
-  /* eslint-disable */
-}
+    if (bookTitle.trim() === '' || authorName.trim() === '') {
+      errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
+      return;
+    }
 
-// Function to update the book list on the page
-function updateBookList() {
-  const bookListing = document.getElementById('bookList');
-  bookListing.innerHTML = '';
+    const book = { title: bookTitle, author: authorName };
+    this.awesomeBooks.push(book);
 
-  awesomeBooks.forEach((book, i) => {
-    const listBookItem = document.createElement('li');
-    listBookItem.classList.add('lists');
-    listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
+    document.getElementById('bookTitle').value = '';
+    document.getElementById('authorName').value = '';
+    this.updateBookList();
+    this.saveBooksToLocalStorage(); // Save the updated book list to local storage
+  }
 
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-btn');
-    removeButton.addEventListener('click', () => {
-      removeBook(i);
+  // Function to remove a book
+  removeBook(index) {
+    this.awesomeBooks = this.awesomeBooks.filter((_, i) => i !== index);
+    this.updateBookList();
+    this.saveBooksToLocalStorage(); // Save the updated book list to local storage
+  }
+
+  // Function to update the book list on the page
+  updateBookList() {
+    const bookListing = document.getElementById('bookList');
+    bookListing.innerHTML = '';
+
+    if (this.awesomeBooks.length > 0) {
+      bookListing.classList.add('list-border'); // Add the border class if there are books
+    } else {
+      bookListing.classList.remove('list-border'); // Remove the border class if there are no books
+    }
+
+    this.awesomeBooks.forEach((book, i) => {
+      const listBookItem = document.createElement('li');
+      listBookItem.classList.add('lists');
+      listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
+
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.classList.add('remove-btn');
+      removeButton.id = `remove-button-${i}`;
+      removeButton.addEventListener('click', () => {
+        this.removeBook(i);
+      });
+
+      listBookItem.appendChild(removeButton);
+      bookListing.appendChild(listBookItem);
     });
+  }
 
-    listBookItem.appendChild(removeButton);
-    bookListing.appendChild(listBookItem);
-  });
-}
+  // Function to save the book list to local storage
+  saveBooksToLocalStorage() {
+    localStorage.setItem('awesomeBooks', JSON.stringify(this.awesomeBooks));
+  }
 
-// Function to save the book list to local storage
-function saveBooksToLocalStorage() {
-  localStorage.setItem('awesomeBooks', JSON.stringify(awesomeBooks));
-}
-
-// Load the books from local storage
-function loadBooksFromLocalStorage() {
-  const storedBooks = localStorage.getItem('awesomeBooks');
-  if (storedBooks) {
-    awesomeBooks = JSON.parse(storedBooks);
-    updateBookList();
+  // Load the books from local storage
+  loadBooksFromLocalStorage() {
+    const storedBooks = localStorage.getItem('awesomeBooks');
+    if (storedBooks) {
+      this.awesomeBooks = JSON.parse(storedBooks);
+      this.updateBookList();
+    }
   }
 }
 
-// Add event listeners to buttons
-document.getElementById('add-btn').addEventListener('click', addBook);
+function initializeBookManager() {
+  const bookDirector = new AwesomeBookManager();
+  return bookDirector; // Return the instance with the id requirement
+}
 
-// Load stored books when the page loads
-window.addEventListener('load', () => {
-  loadBooksFromLocalStorage();
-});
+const bookDirectorWithId = initializeBookManager();
+bookDirectorWithId.updateBookList();
+
+document.addEventListener('DOMContentLoaded', initializeBookManager);
