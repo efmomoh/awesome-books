@@ -43,15 +43,15 @@ removeBook(index) {
 
 
 // Function to update the book list on the page
-updateBookList() {
-  const bookListing = document.getElementById('bookList');
-  bookListing.innerHTML = '';
+// updateBookList() {
+//   const bookListing = document.getElementById('bookList');
+//   bookListing.innerHTML = '';
   
-  if (this.awesomeBooks.length > 0) {
-    bookListing.classList.add('list-border'); // Add the border class if there are books
-  } else {
-    bookListing.classList.remove('list-border'); // Remove the border class if there are no books
-  }
+//   if (this.awesomeBooks.length > 0) {
+//     bookListing.classList.add('list-border'); // Add the border class if there are books
+//   } else {
+//     bookListing.classList.remove('list-border'); // Remove the border class if there are no books
+//   }
 
   this.awesomeBooks.forEach((book, i) => {
     const listBookItem = document.createElement('li');
