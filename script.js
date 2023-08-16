@@ -28,41 +28,38 @@ class AwesomeBookManager {
 
     document.getElementById('bookTitle').value = '';
     document.getElementById('authorName').value = '';
-    /* eslint-disable */
     this.updateBookList();
     this.saveBooksToLocalStorage(); // Save the updated book list to local storage
-    /* eslint-disable */
   }
 
   // Function to remove a book
   removeBook(index) {
     this.awesomeBooks = this.awesomeBooks.filter((_, i) => i !== index);
-    /* eslint-disable */
     this.updateBookList();
     this.saveBooksToLocalStorage(); // Save the updated book list to local storage
-    /* eslint-disable */
   }
 
   // Function to update the book list on the page
   updateBookList() {
-    const bookListing = document.getElementById("bookList");
-    bookListing.innerHTML = "";
+    const bookListing = document.getElementById('bookList');
+    bookListing.innerHTML = '';
 
     if (this.awesomeBooks.length > 0) {
-      bookListing.classList.add("list-border"); // Add the border class if there are books
+      bookListing.classList.add('list-border'); // Add the border class if there are books
     } else {
-      bookListing.classList.remove("list-border"); // Remove the border class if there are no books
+      bookListing.classList.remove('list-border'); // Remove the border class if there are no books
     }
 
     this.awesomeBooks.forEach((book, i) => {
-      const listBookItem = document.createElement("li");
-      listBookItem.classList.add("lists");
+      const listBookItem = document.createElement('li');
+      listBookItem.classList.add('lists');
       listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
 
-      const removeButton = document.createElement("button");
-      removeButton.textContent = "Remove";
-      removeButton.classList.add("remove-btn");
-      removeButton.addEventListener("click", () => {
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.classList.add('remove-btn');
+      removeButton.id = `remove-button-${i}`;
+      removeButton.addEventListener('click', () => {
         this.removeBook(i);
       });
 
@@ -73,16 +70,25 @@ class AwesomeBookManager {
 
   // Function to save the book list to local storage
   saveBooksToLocalStorage() {
-    localStorage.setItem("awesomeBooks", JSON.stringify(this.awesomeBooks));
+    localStorage.setItem('awesomeBooks', JSON.stringify(this.awesomeBooks));
   }
 
   // Load the books from local storage
   loadBooksFromLocalStorage() {
-    const storedBooks = localStorage.getItem("awesomeBooks");
+    const storedBooks = localStorage.getItem('awesomeBooks');
     if (storedBooks) {
       this.awesomeBooks = JSON.parse(storedBooks);
       this.updateBookList();
     }
   }
 }
-const bookDirector = new AwesomeBookManager();
+
+function initializeBookManager() {
+  const bookDirector = new AwesomeBookManager();
+  return bookDirector; // Return the instance with the id requirement
+}
+
+const bookDirectorWithId = initializeBookManager();
+bookDirectorWithId.updateBookList();
+
+document.addEventListener('DOMContentLoaded', initializeBookManager);
