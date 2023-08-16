@@ -7,18 +7,18 @@ class AwesomeBookManager {
   init() {
     this.loadBooksFromLocalStorage();
     document
-      .getElementById("add-btn")
-      .addEventListener("click", this.addBook.bind(this));
-    window.addEventListener("load", this.loadBooksFromLocalStorage.bind(this));
+      .getElementById('add-btn')
+      .addEventListener('click', this.addBook.bind(this));
+    window.addEventListener('load', this.loadBooksFromLocalStorage.bind(this));
   }
 
   // Function to add a book
   addBook() {
-    const bookTitle = document.getElementById("bookTitle").value;
-    const authorName = document.getElementById("authorName").value;
-    const errorMessage = document.querySelector(".feedback");
+    const bookTitle = document.getElementById('bookTitle').value;
+    const authorName = document.getElementById('authorName').value;
+    const errorMessage = document.querySelector('.feedback');
 
-    if (bookTitle.trim() === "" || authorName.trim() === "") {
+    if (bookTitle.trim() === '' || authorName.trim() === '') {
       errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
       return;
     }
@@ -26,8 +26,8 @@ class AwesomeBookManager {
     const book = { title: bookTitle, author: authorName };
     this.awesomeBooks.push(book);
 
-    document.getElementById("bookTitle").value = "";
-    document.getElementById("authorName").value = "";
+    document.getElementById('bookTitle').value = '';
+    document.getElementById('authorName').value = '';
     /* eslint-disable */
     this.updateBookList();
     this.saveBooksToLocalStorage(); // Save the updated book list to local storage
