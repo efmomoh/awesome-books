@@ -18,7 +18,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 HTML/CSS & JavaScript capstone project - Conference page<a name="about-project"></a>
+# 📖 Awesome Books<a name="about-project"></a>
 
 -ENSSAH & JAMES AWESOME BOOKS: Awesome Books project - The Awesome Books page is our first Microverse Awesome Books project. In this project, we use HTML, CSS, and JavaScript by adding an index and style file, we also used linters to analyze our source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
 
