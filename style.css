@@ -133,10 +133,12 @@ h1 {
     background-color: #cac3c2;
     text-align: start;
   }
+
   .heading {
     font-size: 30px;
     padding-left: 30px;
   }
+
   .form {
     height: auto;
     width: auto;
