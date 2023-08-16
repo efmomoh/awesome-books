@@ -8,6 +8,12 @@ body {
   height: auto;
 }
 
+section {
+  background-color: rgb(65, 50, 4);
+  margin: 10px;
+  padding: 5px;
+}
+
 h1 {
   height: auto;
   font-size: 24px;
@@ -28,9 +34,10 @@ h1 {
 }
 
 .heading {
-  font-size: 20px;
+  font-size: 18px;
   padding-left: 30px;
   width: 100%;
+  color: #fff;
 }
 
 #bookTitle,
@@ -101,7 +108,7 @@ h1 {
 
 .feedback {
   color: rgb(238, 7, 7);
-  width: auto;
+  width: 100%;
   padding: 4px;
   font-size: 1.2rem;
   font-weight: 500;
@@ -137,6 +144,7 @@ h1 {
   .heading {
     font-size: 30px;
     padding-left: 30px;
+    color: #fff;
   }
 
   .form {
