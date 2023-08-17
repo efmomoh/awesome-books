@@ -4,19 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ensssah | james |awesome-books</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <section>
-    <h1>E & J AWESOME BOOKS</h1>
-    <form class="form" action="#">
-    <ul id="bookList"></ul>
-        <input type="text" id="bookTitle" class="bookHeading" placeholder="Enter book title"> 
-        <input type="text" id="authorName" class="orator" placeholder="Enter author name">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="container">
+    <header class="header">
+      <nav class="navbar">
+        <h1 class="nav-heading">E & J AWESOME BOOKS</h1>
+        <ul class="nav-links">
+          <li class="list-page">List</li>
+          <li>|</li>
+          <li class="add-page">Add new</li>
+          <li>|</li>
+          <li class="contact-page">Contact</li>
+        </ul>
+      </nav>
+      <div class="date-input">
+        <p class="date"></p>
+        <p class="time"></p>
+      </div>
+    </header>
+    <section>
+      <form class="form" action="#">
+        <ul id="bookList"></ul>
+        <input
+          type="text"
+          id="bookTitle"
+          class="bookHeading"
+          placeholder="Enter book title"
+        />
+        <input
+          type="text"
+          id="authorName"
+          class="orator"
+          placeholder="Enter author name"
+        />
         <button id="add-btn">Add Book</button>
         <span class="feedback"></span>
-    </form>
-  </section>
-  <script src="script.js"></script>
+      </form>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
