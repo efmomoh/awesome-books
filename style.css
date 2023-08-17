@@ -14,7 +14,7 @@ h1 {
   width: 100%;
 }
 .container {
-  padding: 7rem 15rem;
+  padding: 5rem 15rem;
 }
 .navbar {
   display: flex;
@@ -137,6 +137,16 @@ h1 {
   padding: 4px;
   font-size: 1.2rem;
   font-weight: 500;
+}
+.footer {
+  width: 100%;
+  border: 2px solid #000;
+  padding: 1rem;
+  margin-top: 8rem;
+}
+
+.copyright {
+  font-size: 1.5rem;
 }
 
 /* @DESKTOP MEDIA  */

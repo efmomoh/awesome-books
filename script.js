@@ -7,6 +7,13 @@ date.innerHTML = new Date().toDateString();
 time.innerHTML = new Date().toLocaleTimeString();
 dateAndTime.innerHTML = `${date.innerHTML}, ${time.innerHTML}`;
 
+const addBooks = document.querySelector(".form");
+const contact = document.querySelector(".contact");
+const bookListing = document.getElementById("bookList");
+
+const listPage = document.querySelector(".list-page");
+const addPage = document.querySelector(".add-page");
+const contactPage = document.querySelector(".contact-page");
 // Array to store the list of awesomeBooks
 const awesomeBooks = [];
 
@@ -95,4 +102,45 @@ window.addEventListener("load", () => {
     titleName.value = data.titleName;
     nameOfAuthor.value = data.nameOfAuthor;
   }
+});
+
+addBooks.style.display = "none";
+contact.style.display = "none";
+listPage.classList.add("active");
+
+// Navigation Pages Section
+
+// To display books
+listPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  bookListing.style.display = "block";
+  addBooks.style.display = "none";
+  contact.style.display = "none";
+  listPage.classList.add("active");
+  addPage.classList.remove("active");
+  contactPage.classList.remove("active");
+});
+
+// To Display Add Books
+
+addPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  addBooks.style.display = "block";
+  bookListing.style.display = "none";
+  contact.style.display = "none";
+  addPage.classList.add("active");
+  listPage.classList.remove("active");
+  contactPage.classList.remove("active");
+});
+
+// To display Contact
+
+contactPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  contact.style.display = "block";
+  bookListing.style.display = "none";
+  addBooks.style.display = "none";
+  contactPage.classList.add("active");
+  listPage.classList.remove("active");
+  addPage.classList.remove("active");
 });
