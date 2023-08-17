@@ -81,7 +81,11 @@ h1 {
   gap: 0.5rem;
   margin-top: -1.8rem;
 }
-
+.form h3,
+#bookList h3 {
+  font-size: 30px;
+  padding-left: 15rem;
+}
 #bookTitle,
 #authorName {
   height: 40px;
