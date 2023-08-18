@@ -36,7 +36,7 @@ class AwesomeBookManager {
     const errorMessage = document.querySelector(".feedback");
 
     if (bookTitle.trim() === "" || authorName.trim() === "") {
-      errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
+      errorMessage.textContent = '❌ Add both "Title" & "Author"!';
       return;
     }
 
