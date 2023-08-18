@@ -1,3 +1,4 @@
+
 // For time and date
 const date = document.querySelector('.date');
 const time = document.querySelector('.time');
@@ -28,73 +29,92 @@ function addBook() {
     return;
   }
 
-  const book = { title: bookTitle, author: authorName };
-  awesomeBooks.push(book);
+  init() {
+    this.loadBooksFromLocalStorage();
+    document
+      .getElementById('add-btn')
+      .addEventListener('click', this.addBook.bind(this));
+    window.addEventListener('load', this.loadBooksFromLocalStorage.bind(this));
+  }
 
-  document.getElementById('bookTitle').value = '';
-  document.getElementById('authorName').value = '';
-  /* eslint-disable */
-  updateBookList();
-  /* eslint-enable */
-}
+  // Function to add a book
+  addBook() {
+    const bookTitle = document.getElementById('bookTitle').value;
+    const authorName = document.getElementById('authorName').value;
+    const errorMessage = document.querySelector('.feedback');
 
-// Function to remove a book
-function removeBook(index) {
-  awesomeBooks.splice(index, 1);
-  /* eslint-disable */
-  updateBookList();
-  /* eslint-enable */
-}
+    if (bookTitle.trim() === '' || authorName.trim() === '') {
+      errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
+      return;
+    }
 
-// Function to update the book list on the page
-function updateBookList() {
-  const bookListing = document.getElementById('bookList');
-  bookListing.innerHTML = '';
+    const book = { title: bookTitle, author: authorName };
+    this.awesomeBooks.push(book);
 
-  for (let i = 0; i < awesomeBooks.length; i += 1) {
-    const book = awesomeBooks[i];
-    const listBookItem = document.createElement('li');
-    listBookItem.classList.add('lists');
-    listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
+    document.getElementById('bookTitle').value = '';
+    document.getElementById('authorName').value = '';
+    this.updateBookList();
+    this.saveBooksToLocalStorage(); // Save the updated book list to local storage
+  }
 
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-btn');
-    removeButton.addEventListener('click', () => {
-      removeBook(i);
+  // Function to remove a book
+  removeBook(index) {
+    this.awesomeBooks = this.awesomeBooks.filter((_, i) => i !== index);
+    this.updateBookList();
+    this.saveBooksToLocalStorage(); // Save the updated book list to local storage
+  }
+
+  // Function to update the book list on the page
+  updateBookList() {
+    const bookListing = document.getElementById('bookList');
+    bookListing.innerHTML = '';
+
+    if (this.awesomeBooks.length > 0) {
+      bookListing.classList.add('list-border'); // Add the border class if there are books
+    } else {
+      bookListing.classList.remove('list-border'); // Remove the border class if there are no books
+    }
+
+    this.awesomeBooks.forEach((book, i) => {
+      const listBookItem = document.createElement('li');
+      listBookItem.classList.add('lists');
+      listBookItem.textContent = `Title: ${book.title}, Author: ${book.author}`;
+
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.classList.add('remove-btn');
+      removeButton.id = `remove-button-${i}`;
+      removeButton.addEventListener('click', () => {
+        this.removeBook(i);
+      });
+
+      listBookItem.appendChild(removeButton);
+      bookListing.appendChild(listBookItem);
     });
+  }
 
-    listBookItem.appendChild(removeButton);
-    bookListing.appendChild(listBookItem);
+  // Function to save the book list to local storage
+  saveBooksToLocalStorage() {
+    localStorage.setItem('awesomeBooks', JSON.stringify(this.awesomeBooks));
+  }
+
+  // Load the books from local storage
+  loadBooksFromLocalStorage() {
+    const storedBooks = localStorage.getItem('awesomeBooks');
+    if (storedBooks) {
+      this.awesomeBooks = JSON.parse(storedBooks);
+      this.updateBookList();
+    }
   }
 }
 
-// Add event listeners to buttons
-document.getElementById('add-btn').addEventListener('click', addBook);
-
-// Local storage / save user data locally
-const locateLocalBooks = document.querySelector('.form');
-const titleName = document.querySelector('.bookHeading');
-const nameOfAuthor = document.querySelector('.orator');
-
-// collect form data
-
-function getBookData() {
-  const bookData = {
-    titleName: titleName.value,
-    nameOfAuthor: nameOfAuthor.value,
-  };
-  return bookData;
+function initializeBookManager() {
+  const bookDirector = new AwesomeBookManager();
+  return bookDirector; // Return the instance with the id requirement
 }
 
-// Add an event listener to the local form storage area
-
-locateLocalBooks.addEventListener('change', () => {
-  const bookData = getBookData();
-  localStorage.setItem('bookData', JSON.stringify(bookData));
-});
-
-// Add an eevnt listener to the page/window to save input data when user loads the page
+const bookDirectorWithId = initializeBookManager();
+bookDirectorWithId.updateBookList();
 
 window.addEventListener('load', () => {
   const data = JSON.parse(localStorage.getItem('bookData'));
