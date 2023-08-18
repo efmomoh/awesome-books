@@ -6,13 +6,29 @@
     <title>ensssah | james |awesome-books</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <section class="container">
-      <h1>E & J AWESOME BOOKS</h1>
+  <body class="container">
+    <header class="header">
+      <nav class="navbar">
+        <h1 class="nav-heading">All Awesome Books</h1>
+        <ul class="nav-links">
+          <li class="list-page">List</li>
+          <li>|</li>
+          <li class="add-page">Add new</li>
+          <li>|</li>
+          <li class="contact-page">Contact</li>
+        </ul>
+      </nav>
+      <div class="date-input">
+        <p class="date"></p>
+        <p class="time"></p>
+      </div>
+    </header>
+    <section>
+      <ul id="bookList">
+        <h3>All Awesome Books</h3>
+      </ul>
       <form class="form" action="#">
-        <h3 class="heading">All Awesome Books</h3>
-        <ul id="bookList" class="booksHeading"></ul>
-        <h2 class="heading">Add a new book</h2>
+        <h3>Add a new books</h3>
         <input
           type="text"
           id="bookTitle"
@@ -25,10 +41,25 @@
           class="orator"
           placeholder="Enter author name"
         />
-        <button type="submit" id="add-btn">Add Book</button>
+        <button id="add-btn">Add Book</button>
         <span class="feedback"></span>
       </form>
     </section>
+    <section class="contact">
+      <h2 class="heading">Contact Information</h2>
+      <p class="reach-out">
+        Do you have any questions or do you want to just say "Hello"? <br />
+        You can reach out to us!
+      </p>
+      <ul class="reach-out-list">
+        <li>Our email: contact013@mail.com</li>
+        <li>Our phone number: +123456789</li>
+        <li>Our address: Street Number, City, Country</li>
+      </ul>
+    </section>
+    <footer class="footer">
+      <div class="copyright">Copyright &copy; E & J</div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

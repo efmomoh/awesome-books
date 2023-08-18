@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -8,17 +6,74 @@ body {
   height: auto;
 }
 
-section {
+/* section {
   background-color: rgb(65, 50, 4);
   margin: 10px;
   padding: 5px;
-}
+} */
 
 h1 {
   height: auto;
-  font-size: 24px;
-  text-align: center;
+  font-size: 0.5rem;
+  text-align: start;
   color: #000;
+}
+
+.container {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  border: 2px solid #000;
+  padding: 0.5rem;
+}
+
+.nav-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.nav-links li {
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.list-page,
+.add-page,
+.contact-page {
+  transition: all 0.3s;
+}
+
+.list-page:hover,
+.add-page:hover,
+.contact-page:hover {
+  transform: scale(1.03);
+  color: grey;
+}
+
+.date-input {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: flex-end;
+  margin-bottom: 3.5rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 70%;
   width: 85%;
   background-color: #cac3c2;
   margin-left: 2rem;
@@ -30,7 +85,12 @@ h1 {
   width: 50%;
   display: grid;
   gap: 0.5rem;
-  margin-top: -1.8rem;
+}
+
+.form h3,
+#bookList h3 {
+  font-size: 30px;
+  padding-left: 1rem;
 }
 
 .heading {
@@ -82,6 +142,7 @@ h1 {
   display: flex;
   flex-direction: column;
   color: black;
+  width: 50%;
   width: 100%;
   height: auto;
   padding: 4px;
@@ -115,6 +176,17 @@ h1 {
   margin-left: 1.1rem;
 }
 
+.footer {
+  width: 97%;
+  border: 2px solid #000;
+  padding: 1rem;
+  margin-top: 8rem;
+}
+
+.copyright {
+  font-size: 1.5rem;
+}
+
 /* @DESKTOP MEDIA  */
 @media (min-width: 768px) {
   body {
@@ -125,17 +197,81 @@ h1 {
     height: auto;
   }
 
-  section {
+  /* section {
     background-color: rgb(65, 50, 4);
     margin: 20px;
     padding: 10px;
-  }
+  } */
 
   h1 {
-    width: 22%;
     height: auto;
-    font-size: 24px;
+    font-size: 1.5rem;
+    text-align: start;
     color: #000;
+  }
+
+  .container {
+    margin: 0;
+  }
+
+  .header {
+    width: 75%;
+    padding-left: 10rem;
+    margin-top: 2rem;
+  }
+
+  .navbar {
+    display: flex;
+    border: 2px solid #000;
+    padding: 0.1rem;
+    gap: 20rem;
+    padding-left: 2rem;
+  }
+
+  .nav-heading {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links li {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .list-page,
+  .add-page,
+  .contact-page {
+    transition: all 0.3s;
+  }
+
+  .list-page:hover,
+  .add-page:hover,
+  .contact-page:hover {
+    transform: scale(1.03);
+    color: grey;
+  }
+
+  .date-input {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 70%;
     margin-left: 2.8rem;
     background-color: #cac3c2;
     text-align: start;
@@ -148,30 +284,59 @@ h1 {
   }
 
   .form {
+    padding: 10px;
     height: auto;
-    width: auto;
+    width: 50%;
     display: grid;
+    gap: 0.5rem;
+    margin-left: 20rem;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin-left: 20rem;
+  }
+
+  .form h3 {
+    font-size: 30px;
+    margin-left: 5rem;
+  }
+
+  #bookList {
+    font-size: 30px;
   }
 
   #bookTitle,
   #authorName {
     height: 30px;
     border-radius: 8px;
+    width: 50%;
     width: 12%;
     padding: 1px;
     text-align: center;
     font-size: 1rem;
     font-weight: 600;
-    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
   }
 
   #add-btn {
+    height: 40px;
+    width: 20%;
     height: auto;
     width: 6%;
     border-radius: 5px;
     text-align: center;
     padding: 1px;
     color: #345534;
+    font-size: 1.2rem;
+    margin-left: 15rem;
+  }
+
+  .remove-btn {
+    height: 35px;
+    width: 10%;
     font-size: 1rem;
     margin-left: 7rem;
   }
@@ -194,6 +359,16 @@ h1 {
   .lists {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    color: #000;
+    width: 74%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 0.1rem solid #544e4c;
+    margin-left: 7.5rem;
+    list-style-type: none;
+    padding: 4px;
+    margin-bottom: 0.2rem;
     color: #000;
     width: 102%;
     height: auto;
@@ -221,11 +396,35 @@ h1 {
   }
 
   .feedback {
-    width: 70%;
+    color: rgb(238, 7, 7);
     padding: 4px;
     font-size: 1.2rem;
     font-weight: 500;
+  }
+
+  .contact {
+    padding-left: 20rem;
+    margin-top: -2rem;
+  }
+
+  .reach-out,
+  .reach-out-list {
+    padding-left: 8rem;
+  }
+
+  .footer {
+    border: 2px solid #000;
+    margin-top: 14rem;
+    width: 72%;
+    margin-left: 10rem;
+  }
+
+  .copyright {
+    font-size: 1.5rem;
     color: rgb(233, 10, 10);
     margin-left: 1.1rem;
+  }
+  .form {
+    display: none;
   }
 }
