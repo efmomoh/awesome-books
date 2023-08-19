@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -8,20 +6,72 @@ body {
   height: auto;
 }
 
-section {
-  background-color: rgb(65, 50, 4);
-  margin: 10px;
-  padding: 5px;
-}
-
 h1 {
   height: auto;
-  font-size: 24px;
-  text-align: center;
+  font-size: 0.5rem;
+  text-align: start;
   color: #000;
-  width: 85%;
+}
+
+.container {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  border: 2px solid #000;
+  padding: 0.5rem;
+}
+
+.nav-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.nav-links li {
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.list-page,
+.add-page,
+.contact-page {
+  transition: all 0.3s;
+}
+
+.list-page:hover,
+.add-page:hover,
+.contact-page:hover {
+  transform: scale(1.03);
+  color: grey;
+}
+
+.date-input {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
+  padding-right: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 70%;
   background-color: #cac3c2;
   margin-left: 2rem;
+  color: #fff;
 }
 
 .form {
@@ -30,14 +80,12 @@ h1 {
   width: 50%;
   display: grid;
   gap: 0.5rem;
-  margin-top: -1.8rem;
 }
 
-.heading {
-  font-size: 18px;
-  padding-left: 30px;
-  width: 100%;
-  color: #fff;
+.form h3,
+#bookList h3 {
+  font-size: 30px;
+  padding-left: 1rem;
 }
 
 #bookTitle,
@@ -82,13 +130,15 @@ h1 {
   display: flex;
   flex-direction: column;
   color: black;
+  width: 50%;
   width: 100%;
   height: auto;
   padding: 4px;
-  font-size: 0.9rem;
   font-weight: 500;
   border-bottom: 0.1rem solid #544e4c;
   margin-left: -2rem;
+  gap: 0.2rem;
+  font-size: 2rem;
 }
 
 .list-border {
@@ -106,6 +156,10 @@ h1 {
   background-color: #fff; /* White for even rows */
 }
 
+.contact {
+  padding-left: 1rem;
+}
+
 .feedback {
   color: rgb(238, 7, 7);
   width: 100%;
@@ -113,6 +167,17 @@ h1 {
   font-size: 1.2rem;
   font-weight: 500;
   margin-left: 1.1rem;
+}
+
+.footer {
+  width: 97%;
+  border: 2px solid #000;
+  padding: 1rem;
+  margin-top: 32rem;
+}
+
+.copyright {
+  font-size: 1.5rem;
 }
 
 /* @DESKTOP MEDIA  */
@@ -125,55 +190,129 @@ h1 {
     height: auto;
   }
 
-  section {
-    background-color: rgb(65, 50, 4);
-    margin: 20px;
-    padding: 10px;
+  h1 {
+    height: auto;
+    font-size: 1.5rem;
+    text-align: start;
+    color: #000;
   }
 
-  h1 {
-    width: 22%;
-    height: auto;
-    font-size: 24px;
-    color: #000;
-    margin-left: 2.8rem;
-    background-color: #cac3c2;
-    text-align: start;
+  .container {
+    margin: 0;
+  }
+
+  .header {
+    width: 75%;
+    padding-left: 10rem;
+    margin-top: 2rem;
+  }
+
+  .navbar {
+    display: flex;
+    border: 2px solid #000;
+    padding: 0.1rem;
+    gap: 20rem;
+    padding-left: 2rem;
+  }
+
+  .nav-heading {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links li {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .list-page,
+  .add-page,
+  .contact-page {
+    transition: all 0.3s;
+  }
+
+  .list-page:hover,
+  .add-page:hover,
+  .contact-page:hover {
+    transform: scale(1.03);
+    color: grey;
+  }
+
+  .date-input {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: flex-end;
+    margin-bottom: 3.5rem;
+    padding-right: 2rem;
   }
 
   .heading {
-    font-size: 30px;
-    padding-left: 30px;
-    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 70%;
+    margin-left: 2.8rem;
+    background-color: #cac3c2;
+    padding-left: 25px;
+    color: #c82121;
   }
 
   .form {
+    padding: 10px;
     height: auto;
-    width: auto;
+    width: 50%;
     display: grid;
+    gap: 0.5rem;
+    margin-left: 25rem;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin-left: 20rem;
+  }
+
+  .form h3 {
+    font-size: 30px;
+    margin-left: 5rem;
+  }
+
+  #bookList {
+    font-size: 30px;
+    width: 72%;
+    margin-left: 10rem;
   }
 
   #bookTitle,
   #authorName {
-    height: 30px;
+    height: 40px;
     border-radius: 8px;
-    width: 12%;
-    padding: 1px;
+    width: 50%;
     text-align: center;
-    font-size: 1rem;
     font-weight: 600;
-    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   #add-btn {
     height: auto;
-    width: 6%;
+    width: 20%;
     border-radius: 5px;
     text-align: center;
     padding: 1px;
     color: #345534;
-    font-size: 1rem;
-    margin-left: 7rem;
+    font-size: 1.2rem;
+    margin-left: 15rem;
   }
 
   .remove-btn {
@@ -184,25 +323,25 @@ h1 {
     padding: 1px;
     color: #345534;
     font-size: 1.2rem;
-  }
-
-  #bookList {
-    width: 50%;
-    margin-left: 2rem;
+    margin-left: 7rem;
   }
 
   .lists {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     color: #000;
-    width: 102%;
-    height: auto;
     font-size: 1.2rem;
     font-weight: 500;
+    border: 0.1rem solid #544e4c;
+    list-style-type: none;
+    padding: 4px;
+    margin-bottom: 0.2rem;
+    width: 102%;
+    height: auto;
     border-bottom: 0.1rem solid #544e4c;
     gap: 13.5rem;
     margin-left: -1.8rem;
-    margin-bottom: 0.2rem;
   }
 
   .list-border {
@@ -213,18 +352,39 @@ h1 {
   }
 
   .lists:nth-child(odd) {
-    background-color: #f2f2f2; /* Light gray for odd rows */
+    background-color: #f2f2f2;
   }
 
   .lists:nth-child(even) {
-    background-color: #fff; /* White for even rows */
+    background-color: #fff;
   }
 
   .feedback {
-    width: 70%;
+    color: rgb(238, 7, 7);
     padding: 4px;
     font-size: 1.2rem;
     font-weight: 500;
+  }
+
+  .contact {
+    padding-left: 20rem;
+    margin-top: 8rem;
+  }
+
+  .reach-out,
+  .reach-out-list {
+    padding-left: 8rem;
+  }
+
+  .footer {
+    border: 2px solid #000;
+    margin-top: 6rem;
+    width: 72%;
+    margin-left: 10rem;
+  }
+
+  .copyright {
+    font-size: 1.5rem;
     color: rgb(233, 10, 10);
     margin-left: 1.1rem;
   }

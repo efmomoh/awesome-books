@@ -1,3 +1,20 @@
+// For time and date
+const date = document.querySelector('.date');
+const time = document.querySelector('.time');
+const dateAndTime = document.querySelector('.date-input');
+
+date.innerHTML = new Date().toDateString();
+time.innerHTML = new Date().toLocaleTimeString();
+dateAndTime.innerHTML = `${date.innerHTML}, ${time.innerHTML}`;
+
+const addBooks = document.querySelector('.form');
+const contact = document.querySelector('.contact');
+const bookListing = document.getElementById('bookList');
+
+const listPage = document.querySelector('.list-page');
+const addPage = document.querySelector('.add-page');
+const contactPage = document.querySelector('.contact-page');
+
 class AwesomeBookManager {
   constructor() {
     this.awesomeBooks = [];
@@ -19,7 +36,7 @@ class AwesomeBookManager {
     const errorMessage = document.querySelector('.feedback');
 
     if (bookTitle.trim() === '' || authorName.trim() === '') {
-      errorMessage.textContent = '⚠️ Add both "Title" & "Author"!';
+      errorMessage.textContent = '❌ Add both "Title" & "Author"!';
       return;
     }
 
@@ -92,3 +109,52 @@ const bookDirectorWithId = initializeBookManager();
 bookDirectorWithId.updateBookList();
 
 document.addEventListener('DOMContentLoaded', initializeBookManager);
+
+window.addEventListener('load', () => {
+  const data = JSON.parse(localStorage.getItem('bookData'));
+  if (data) {
+    this.titleName.value = data.titleName;
+    this.nameOfAuthor.value = data.nameOfAuthor;
+  }
+});
+
+addBooks.style.display = 'none';
+contact.style.display = 'none';
+listPage.classList.add('active');
+
+// Navigation Pages Section
+
+// To display books
+listPage.addEventListener('click', (e) => {
+  e.preventDefault();
+  bookListing.style.display = 'block';
+  addBooks.style.display = 'none';
+  contact.style.display = 'none';
+  listPage.classList.add('active');
+  addPage.classList.remove('active');
+  contactPage.classList.remove('active');
+});
+
+// To Display Add Books
+
+addPage.addEventListener('click', (e) => {
+  e.preventDefault();
+  addBooks.style.display = 'block';
+  bookListing.style.display = 'none';
+  contact.style.display = 'none';
+  addPage.classList.add('active');
+  listPage.classList.remove('active');
+  contactPage.classList.remove('active');
+});
+
+// To display Contact
+
+contactPage.addEventListener('click', (e) => {
+  e.preventDefault();
+  contact.style.display = 'block';
+  bookListing.style.display = 'none';
+  addBooks.style.display = 'none';
+  contactPage.classList.add('active');
+  listPage.classList.remove('active');
+  addPage.classList.remove('active');
+});
